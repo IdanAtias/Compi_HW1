@@ -29,6 +29,7 @@ word				(({withoutA}|-{withoutA}|\-\-+{withoutB})*\-*)
 comment				(\<!\-\-{word}\-\-\>)
 value				(([^\"\n])*)	
 punctuation			(\.|\,|\-|{whitespace})
+nlAndTab			([\t\n])
 %%
 
 {comment}													showToken("COMMENT");												
@@ -42,6 +43,7 @@ punctuation			(\.|\,|\-|{whitespace})
 \<\/{tag}\>													showToken("E_TAG");	
 {tag}=\"{value}\"											showToken("ATTR");
 {punctuation}												showToken("PUNCTUATION");
+{nlAndTab}													;
 .															handleError();
 %%
 
