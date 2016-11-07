@@ -1,0 +1,10 @@
+1 SS_TAG <test1
+1 SE_TAG >
+2 STRING no
+2 PUNCTUATION  
+2 STRING lexical
+2 PUNCTUATION  
+2 STRING error
+2 PUNCTUATION  
+2 STRING here
+3 E_TAG </test1>
