@@ -28,14 +28,14 @@ withoutB			([^\-\>])
 word				(({withoutA}|-{withoutA}|\-\-+{withoutB})*\-*)				
 comment				(\<!\-\-{word}\-\-\>)
 value				(([^\"\n])*)	
-punctuation			([\.,\-{whitespace}])				
+punctuation			(\.|\,|\-|{whitespace})
 %%
 
 {comment}													showToken("COMMENT");												
 {int}														showToken("INT");
 (((0{natural}|{natural}|{realNoZero}){exp}?)|{real})		showToken("FLOAT");
 {year}\-{month}\-{day}										showToken("DATE");
-{letter}({letter}|\.|,|{whitespace})*						showToken("STRING");
+{letter}{letter}*											showToken("STRING");
 \<{tag}														showToken("SS_TAG");
 \>															showToken("SE_TAG");
 \<{tag}{whitespace}\/>										showToken("SINGLE_TAG");	
@@ -47,10 +47,10 @@ punctuation			([\.,\-{whitespace}])
 
 void showToken(char* name)
 {
-        printf("%d %s %s/n" , yylineno, name, yytext);		
+        printf("%d %s %s\n" , yylineno, name, yytext);
 }
 void handleError() 
 {
-	printf("Error %s/n",yytext);
+	printf("Error %s\n",yytext);
 	exit(0);
 }
