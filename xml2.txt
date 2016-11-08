@@ -1,4 +1,4 @@
-<breakfast_menu>
+<breakfastmenu>
 <food>
 <name>Belgian Waffles</name>
 <price>$5.95</price>
@@ -39,4 +39,4 @@ Two eggs, bacon or sausage, toast, and our ever-popular hash browns
 </description>
 <calories>950</calories>
 </food>
-</breakfast_menu>
+</breakfastmenu>
